@@ -1,0 +1,47 @@
+<div class="container-fluid h-100">
+  <div class="row justify-content-center align-items-center h-100">
+    <mat-card class="p-5" style="width: 500px;">
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <h2>USER SIGNUP</h2>
+      <form [formGroup]="signUpForm" (submit)="onSignup()">
+        <!-- Image Upload start -->
+        <label class="hoverable" (click)="filePicker.click()">
+          <img [src]="imagePreview" [alt]="signUpForm.value.name">
+          <div class="hover-text">Choose file</div>
+          <div class="background"></div>
+        </label>
+        <div>
+          <input type="file" #filePicker (change)="onImagePicked($event)">
+        </div>
+        <!-- Image Upload end -->
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="User Name" formControlName="name">
+            <mat-error *ngIf="signUpForm.get('name').invalid">Please enter your name!</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="email" placeholder="User Email" formControlName="email">
+            <mat-error *ngIf="signUpForm.get('email').invalid">Please enter your Email!</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="text" placeholder="Contact Number" formControlName="contact">
+            <mat-error *ngIf="signUpForm.get('contact').invalid">Please enter your contact number!</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" formControlName="password">
+            <mat-error *ngIf="signUpForm.get('password').invalid">Please enter your password!</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" type="submit" *ngIf="!isLoading">Signup</button>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

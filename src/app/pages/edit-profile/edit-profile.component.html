@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="main-body">
+    <form [formGroup]="editForm" (submit)="onEditProfile()">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex flex-column align-items-center text-center">
+                <!-- Image Upload start -->
+                <label class="hoverable" (click)="filePicker.click()">
+                  <img [src]="imagePreview" [alt]="editForm.value.name">
+                  <div class="hover-text">Choose file</div>
+                  <div class="background"></div>
+                </label>
+                <div>
+                  <input type="file" #filePicker (change)="onImagePicked($event)">
+                </div>
+                <!-- Image Upload end -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Full Name</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input formControlName="name" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Email</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input formControlName="email" type="email" class="form-control">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col-sm-3">
+                  <h6 class="mb-0">Phone</h6>
+                </div>
+                <div class="col-sm-9 text-secondary">
+                  <input formControlName="contact" type="text" class="form-control">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-9 text-secondary">
+                  <input type="submit" class="btn btn-primary px-4" value="Save Changes">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

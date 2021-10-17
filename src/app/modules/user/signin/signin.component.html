@@ -1,0 +1,27 @@
+<div class="container-fluid h-100">
+  <div class="row justify-content-center align-items-center h-100">
+    <mat-card class="p-5" style="width: 500px;">
+      <h2>USER LOGIN</h2>
+      <mat-spinner *ngIf="isLoading"></mat-spinner>
+      <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+        <div>
+          <mat-form-field>
+            <input matInput name="email" type="email" placeholder="User Email" ngModel #emailInput="ngModel" required
+              email>
+            <mat-error *ngIf="emailInput.invalid">Please enter valid Email!</mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput name="password" ngModel type="password" placeholder="Password" #passwordInput="ngModel"
+              required>
+            <mat-error *ngIf="passwordInput.invalid">Please enter your Password!</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary" type="submit">Sign In</button>
+          </div>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>
